@@ -23,5 +23,8 @@ public interface IPharmacie extends JpaRepository<Pharmacie, Integer> {
     @Query("SELECT p from Pharmacie p where p.id=:id")
     public Pharmacie getById(@Param("id") int id);
 
+    @Query("SELECT p from Pharmacie p where p.nom=:nom")
+    public List<Pharmacie> getAllByNom(@Param("nom") String nom);
+
 
 }

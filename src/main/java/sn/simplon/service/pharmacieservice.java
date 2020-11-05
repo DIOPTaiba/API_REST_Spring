@@ -62,4 +62,9 @@ public class pharmacieservice {
         pharmaciedao.save(pharmacie);
         return pharmaciedao.findAll();
     }
+
+    @RequestMapping(value = "/pharmacie/listNom/{nom}", method = RequestMethod.GET)
+    public List<Pharmacie> getAllByNom(@PathVariable String nom){
+        return pharmaciedao.getAllByNom(nom);
+    }
 }
