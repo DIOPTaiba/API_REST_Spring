@@ -32,11 +32,6 @@ public class pharmacieservice {
         return pharmaciedao.getAllByVille(ville);
     }
 
-    /*@RequestMapping(value = "/pharmacie/list/{ouverte}", method = RequestMethod.GET)
-    public List<Pharmacie> getAllByOuverte(@PathVariable String ouverte){
-        return pharmaciedao.getAllByOuverte(ouverte);
-    }*/
-
     @RequestMapping(value = "/pharmacie/save", method = RequestMethod.POST)
     public List<Pharmacie> save(Pharmacie pharmacie){
         pharmaciedao.save(pharmacie);
@@ -66,5 +61,10 @@ public class pharmacieservice {
     @RequestMapping(value = "/pharmacie/listNom/{nom}", method = RequestMethod.GET)
     public List<Pharmacie> getAllByNom(@PathVariable String nom){
         return pharmaciedao.getAllByNom(nom);
+    }
+
+    @RequestMapping(value = "/pharmacie/ouverte/{etat}", method = RequestMethod.GET)
+    public List<Pharmacie> getAllByOuverte(@PathVariable int etat){
+        return pharmaciedao.getAllByOuverte(etat);
     }
 }
