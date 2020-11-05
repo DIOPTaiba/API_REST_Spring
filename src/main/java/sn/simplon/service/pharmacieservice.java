@@ -18,10 +18,6 @@ public class pharmacieservice {
         return pharmaciedao.findAll();
     }
 
-    /*@RequestMapping(value = "/pharmacie/listQuartier/{quatier}", method = RequestMethod.GET)
-    public List<Pharmacie> getAllByQuartier(@PathVariable String quartier){
-        return pharmaciedao.getAllByQuartier(quartier);
-    }*/
     @RequestMapping(value = "/pharmacie/listQuartier/{quartier}", method = RequestMethod.GET)
     public List<Pharmacie> getAllByQuartier(@PathVariable String quartier){
         return pharmaciedao.getAllByQuartier(quartier);
@@ -46,8 +42,8 @@ public class pharmacieservice {
         return pharmaciedao.findAll();
     }
 
-    @RequestMapping(value = "/pharmacie/get/{id}", method = RequestMethod.GET)
-    public Pharmacie getById(@PathVariable int id){
+    @RequestMapping(value = "/pharmacie/get", method = RequestMethod.GET)
+    public Pharmacie getById(@RequestParam int id){
         return pharmaciedao.getById(id);
     }
 
@@ -63,8 +59,14 @@ public class pharmacieservice {
         return pharmaciedao.getAllByNom(nom);
     }
 
-    @RequestMapping(value = "/pharmacie/ouverte/{etat}", method = RequestMethod.GET)
-    public List<Pharmacie> getAllByOuverte(@PathVariable int etat){
-        return pharmaciedao.getAllByOuverte(etat);
+    @RequestMapping(value = "/pharmacie/ferme", method = RequestMethod.GET)
+    public List<Pharmacie> getByEtatFerme(){
+        return pharmaciedao.getByEtatFerme();
     }
+
+    @RequestMapping(value = "/pharmacie/ouverte", method = RequestMethod.GET)
+    public List<Pharmacie> getByEtatOuverte(){
+        return pharmaciedao.getByEtatOuverte();
+    }
+
 }
