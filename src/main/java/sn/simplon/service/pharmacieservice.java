@@ -51,8 +51,8 @@ public class pharmacieservice {
         return pharmaciedao.findAll();
     }
 
-    @RequestMapping(value = "/pharmacie/get", method = RequestMethod.GET)
-    public Pharmacie getById(@RequestParam int id){
+    @RequestMapping(value = "/pharmacie/get/{id}", method = RequestMethod.GET)
+    public Pharmacie getById(@PathVariable int id){
         return pharmaciedao.getById(id);
     }
 
